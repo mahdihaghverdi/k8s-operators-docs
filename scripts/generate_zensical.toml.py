@@ -23,17 +23,17 @@ def clone_operator(operator) -> str:
     if target.exists():
         shutil.rmtree(target)
 
-    subprocess.run(
+    r = subprocess.run(
         [
             "git",
             "clone",
-            "--depth",
-            "1",
             f"https://github.com/mahdihaghverdi/{operator['name']}.git",
             str(target)
         ],
         check=True,
+        capture_output=True,
     )
+    print(r)
 
     return target
 
