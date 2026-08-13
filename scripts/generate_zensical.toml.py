@@ -19,14 +19,13 @@ def copy_docs(operator_name: str):
     source = ROOT / operator_name / "docs"
     target = DOCS / operator_name
     shutil.copytree(source, target)
+    print(os.listdir(target))
 
 
 def main():
     operators = load_operators()
     for operator in operators:
         copy_docs(operator['name'])
-
-    print(os.listdir(DOCS))
 
 if __name__ == "__main__":
     main()
