@@ -19,7 +19,7 @@ jobs:
       - name: Clone ConfigBundleOperator repo
         uses: GuillaumeFalourd/clone-github-repo-action@v2.3
         with:
-          branch: 'main'
+          branch: 'master'
           owner: 'mahdihaghverdi'
           repository: 'ConfigBundleOperator'
 
