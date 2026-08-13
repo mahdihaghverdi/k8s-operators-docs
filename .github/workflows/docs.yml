@@ -9,21 +9,37 @@ permissions:
   pages: write
   id-token: write
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/configure-pages@v6
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v6
+      - name: Checkout docs repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.x
-      - run: pip install zensical
-      - run: zensical build --clean
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: site
-      - uses: actions/deploy-pages@v5
-        id: deployment
+          python-version: "3.13"
+
+      - name: Fetch operator documentation
+        run: |
+          python scripts/generate_zensical.toml.py
+
+#  deploy:
+#    environment:
+#      name: github-pages
+#      url: ${{ steps.deployment.outputs.page_url }}
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/configure-pages@v6
+#      - uses: actions/checkout@v7
+#      - uses: actions/setup-python@v6
+#        with:
+#          python-version: 3.x
+#      - run: pip install zensical
+#      - run: zensical build --clean
+#      - uses: actions/upload-pages-artifact@v5
+#        with:
+#          path: site
+#      - uses: actions/deploy-pages@v5
+#        id: deployment
