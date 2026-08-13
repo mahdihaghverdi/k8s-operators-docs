@@ -16,10 +16,12 @@ def load_operators():
         return tomllib.load(f)["operators"]
 
 
-def copy_docs(operator_name: str):
-    source = ROOT / operator_name / "docs"
-    target = DOCS / operator_name
-    shutil.copytree(source, target)
+def copy_docs(operators: list[dict]):
+    for operator in operators:
+        operator_name = operator["name"]
+        source = ROOT / operator_name / "docs"
+        target = DOCS / operator_name
+        shutil.copytree(source, target)
 
 
 def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
@@ -43,9 +45,7 @@ def make_nav_toml_acceptable(nav: list[dict]) -> str:
 
 def main():
     operators = load_operators()
-    for operator in operators:
-        copy_docs(operator['name'])
-
+    copy_docs(operators)
     canonical_nav = create_the_canonical_nav(operators)
     toml_acceptable_nav = make_nav_toml_acceptable(canonical_nav)
     print(toml_acceptable_nav)
