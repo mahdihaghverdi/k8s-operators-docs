@@ -7,7 +7,11 @@ ROOT = Path(__file__).parent.parent
 DOCS = ROOT / "docs"
 REPOS = ROOT / ".repos"
 
-logger.info(REPOS)
-logger.info(DOCS)
-logger.info(REPOS)
+logger.error(REPOS)
+logger.error(DOCS)
+logger.error(REPOS)
+
+print(REPOS)
+print(DOCS)
+print(REPOS)
 
