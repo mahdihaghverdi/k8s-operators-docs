@@ -1,0 +1,10 @@
+[project]
+site_url = "https://mahdihaghverdi.github.io/k8s-operators-docs"
+site_name = "K8s Operators Docs"
+site_description = "Documentation of all K8s operators I've written."
+site_author = "Mahdi Haghverdi"
+
+copyright = "&copy; 2026 Mahdi Haghverdi"
+
+repo_url = "https://github.com/mahdihaghverdi/k8s-operators-docs"
+repo_name = "mahdihaghverdi/k8s-operators-docs"
