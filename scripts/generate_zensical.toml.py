@@ -1,6 +1,5 @@
 import json
 import logging
-import pprint
 import shutil
 import tomllib
 from pathlib import Path
@@ -80,9 +79,6 @@ def create_zensical_toml(toml_acceptable_nav: str):
 
     with open("zensical.toml", "w") as f:
         f.writelines(lines)
-
-    with open("zensical.toml") as f:
-        pprint.pprint(f.readlines())
 
 
 def main():
