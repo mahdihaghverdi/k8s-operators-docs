@@ -20,9 +20,10 @@ jobs:
       - name: Checkout public repo
         uses: actions/checkout@v4
         with:
-          repository: mahdihaghverdi/ConfigBundleOperator
+          repository: mahdihaghverdi/ConfigBundleOperator@main
           path: ConfigBundleOperator
-          token: ${{ secrets.TOKEN }}
+          github-token: ${{ secrets.TOKEN }}
+
 
       - name: Setup Python
         uses: actions/setup-python@v5
