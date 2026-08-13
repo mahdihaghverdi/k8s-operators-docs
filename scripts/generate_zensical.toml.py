@@ -1,7 +1,5 @@
 import json
 import logging
-import os
-import pprint
 import shutil
 import tomllib
 from pathlib import Path
@@ -82,15 +80,10 @@ def create_zensical_toml(toml_acceptable_nav: str):
     with open("zensical.toml", "w") as f:
         f.writelines(lines)
 
-    with open("zensical.toml", "r") as f:
-        lines = [line.strip() for line in f.readlines()]
-
-    pprint.pprint(lines)
 
 def main():
     operators = load_operators()
     copy_docs(operators)
-    pprint.pprint(os.listdir(DOCS / "ConfigBundleOperator"))
     copy_overrides(operators)
     canonical_nav = create_the_canonical_nav(operators)
     toml_acceptable_nav = make_nav_toml_acceptable(canonical_nav)
