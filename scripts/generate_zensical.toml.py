@@ -39,7 +39,7 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
 
 
 def make_nav_toml_acceptable(nav: list[dict]) -> str:
-    toml_acceptable_nav = json.dumps(str(nav), indent=4).replace(":", ' = ')
+    toml_acceptable_nav = json.dumps(nav, indent=4).replace(":", ' =')
     return toml_acceptable_nav
 
 
