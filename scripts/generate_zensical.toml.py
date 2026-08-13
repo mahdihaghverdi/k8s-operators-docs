@@ -9,7 +9,7 @@ logger = logging.getLogger("generator")
 
 ROOT = Path(__file__).parent.parent
 DOCS = ROOT / "docs"
-
+OVERRIDES = ROOT / "overrides"
 
 def load_operators():
     with open(ROOT / "operators.config.toml", "rb") as f:
@@ -22,6 +22,14 @@ def copy_docs(operators: list[dict]):
         source = ROOT / operator_name / "docs"
         target = DOCS / operator_name
         shutil.copytree(source, target)
+
+
+def copy_overrides(operators: list[dict]):
+    for operator in operators:
+        operator_name = operator["name"]
+        source = ROOT / operator_name / "overrides"
+        target = OVERRIDES
+        shutil.copytree(source, target, dirs_exist_ok=True)
 
 
 def add_operator_name_to_file_paths(nav_dict: dict, operator_name: str) -> dict:
@@ -79,11 +87,10 @@ def create_zensical_toml(toml_acceptable_nav: str):
 
 def main():
     operators = load_operators()
-
     copy_docs(operators)
+    copy_overrides(operators)
     canonical_nav = create_the_canonical_nav(operators)
     toml_acceptable_nav = make_nav_toml_acceptable(canonical_nav)
-
     create_zensical_toml(toml_acceptable_nav)
 
 
