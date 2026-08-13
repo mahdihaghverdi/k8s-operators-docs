@@ -1,6 +1,6 @@
 import json
 import logging
-import os
+import pprint
 import shutil
 import tomllib
 from pathlib import Path
@@ -39,16 +39,37 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
 
 
 def make_nav_toml_acceptable(nav: list[dict]) -> str:
-    toml_acceptable_nav = json.dumps(nav, indent=4).replace(":", ' =')
+    toml_acceptable_nav = "nav = " + json.dumps(nav, indent=4).replace(":", ' =') + "\n\n"
     return toml_acceptable_nav
+
+
+def create_zensical_toml(toml_acceptable_nav: str):
+    lines = []
+    with (
+        open(ROOT / "project.section.txt") as f,
+        open(ROOT / "project.theme.txt") as theme,
+        open(ROOT / "project.extensions.txt") as extensions,
+    ):
+        lines.extend(f.readlines())
+        lines.append(toml_acceptable_nav)
+        lines.extend(theme.readlines())
+        lines.extend(extensions.readlines())
+
+    with open("zensical.toml", "w") as f:
+        f.writelines(lines)
+
+    with open("zensical.toml") as f:
+        pprint.pprint(f.readlines())
 
 
 def main():
     operators = load_operators()
+
     copy_docs(operators)
     canonical_nav = create_the_canonical_nav(operators)
     toml_acceptable_nav = make_nav_toml_acceptable(canonical_nav)
-    print(toml_acceptable_nav)
+
+    create_zensical_toml(toml_acceptable_nav)
 
 
 if __name__ == "__main__":
