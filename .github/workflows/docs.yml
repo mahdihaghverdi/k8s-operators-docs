@@ -16,12 +16,11 @@ jobs:
       - name: Checkout docs repository
         uses: actions/checkout@v4
 
-      - name: Clone ConfigBundleOperator repo
-        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+      - name: Checkout public repo
+        uses: actions/checkout@v4
         with:
-          branch: 'master'
-          owner: 'mahdihaghverdi'
-          repository: 'ConfigBundleOperator'
+          repository: mahdihaghverdi/ConfigBundleOperator
+          path: ConfigBundleOperator
 
       - name: Setup Python
         uses: actions/setup-python@v5
