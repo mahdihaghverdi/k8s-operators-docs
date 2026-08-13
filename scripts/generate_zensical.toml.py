@@ -49,7 +49,6 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
             nav_list = eval(f.read())
             for dict_ in nav_list:
                 add_operator_name_to_file_paths(dict_, operator_name)
-            print(nav_list)
             nav.append({operator_name: nav_list})
     return nav
 
