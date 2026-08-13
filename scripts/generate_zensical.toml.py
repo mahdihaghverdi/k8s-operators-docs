@@ -18,9 +18,8 @@ def load_operators():
 
 def main():
     operators = load_operators()
-
     REPOS.mkdir(exist_ok=True)
-    print(os.listdir(REPOS))
+    print(os.listdir(ROOT))
 
 
 if __name__ == "__main__":
