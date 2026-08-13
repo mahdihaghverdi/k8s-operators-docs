@@ -24,8 +24,20 @@ def copy_docs(operators: list[dict]):
         shutil.copytree(source, target)
 
 
+def add_operator_name_to_file_paths(nav_dict: dict, operator_name: str) -> dict:
+    edit_path = lambda p: operator_name + "/" + p
+
+    for k, v in nav_dict.items():
+        if isinstance(v, str):
+            nav_dict[k] = edit_path(v)
+        elif isinstance(v, list):
+            nav_dict[k] = [edit_path(v_) for v_ in v]
+        elif isinstance(v, dict):
+            nav_dict[k] = add_operator_name_to_file_paths(v, operator_name)
+
+    return nav_dict
+
 def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
-    # read the k8s-operators-docs zensical.nav.txt
     ZENSICAL_NAV_CONF = "zensical.nav.txt"
     nav = []
     with open(ROOT / ZENSICAL_NAV_CONF) as f:
@@ -34,7 +46,11 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
     for operator in operators:
         operator_name = operator["name"]
         with open(ROOT / operator_name / ZENSICAL_NAV_CONF) as f:
-            nav.append({operator_name: eval(f.read())})
+            nav_list = eval(f.read())
+            for dict_ in nav_list:
+                add_operator_name_to_file_paths(dict_, operator_name)
+            print(nav_list)
+            nav.append({operator_name: nav_list})
     return nav
 
 

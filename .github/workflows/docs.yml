@@ -30,10 +30,10 @@ jobs:
       - uses: actions/setup-python@v6
       - run: |
           python scripts/generate_zensical.toml.py
-      - run: pip install zensical
-      - run: zensical build --clean
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: site
-      - uses: actions/deploy-pages@v5
-        id: deployment
+#      - run: pip install zensical
+#      - run: zensical build --clean
+#      - uses: actions/upload-pages-artifact@v5
+#        with:
+#          path: site
+#      - uses: actions/deploy-pages@v5
+#        id: deployment
