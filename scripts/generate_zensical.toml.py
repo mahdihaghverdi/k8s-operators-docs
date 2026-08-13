@@ -24,7 +24,7 @@ def copy_docs(operator_name: str):
 def main():
     operators = load_operators()
     for operator in operators:
-        copy_docs(operator)
+        copy_docs(operator['name'])
 
     print(os.listdir(DOCS))
 
