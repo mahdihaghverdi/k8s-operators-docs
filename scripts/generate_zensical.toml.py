@@ -90,7 +90,7 @@ def create_zensical_toml(toml_acceptable_nav: str):
 def main():
     operators = load_operators()
     copy_docs(operators)
-    pprint.pprint(os.listdir(DOCS))
+    pprint.pprint(os.listdir(DOCS / "ConfigBundleOperator"))
     copy_overrides(operators)
     canonical_nav = create_the_canonical_nav(operators)
     toml_acceptable_nav = make_nav_toml_acceptable(canonical_nav)
