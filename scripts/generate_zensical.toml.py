@@ -29,12 +29,12 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
     ZENSICAL_NAV_CONF = "zensical.nav.txt"
     nav = []
     with open(ROOT / ZENSICAL_NAV_CONF) as f:
-        nav.append(eval(f.read()))
+        nav.extend(eval(f.read()))
 
     for operator in operators:
         operator_name = operator["name"]
         with open(ROOT / operator_name / ZENSICAL_NAV_CONF) as f:
-            nav.append(eval(f.read()))
+            nav.append({operator_name: eval(f.read())})
     return nav
 
 
