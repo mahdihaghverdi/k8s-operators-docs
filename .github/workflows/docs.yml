@@ -4,6 +4,12 @@ on:
     branches:
       - master
       - main
+  repository_dispatch:
+    types:
+      - docs-updated
+
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
