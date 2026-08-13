@@ -11,3 +11,4 @@ wheels/
 .venv
 site
 .cache
+docs/ConfigBundleOperator

@@ -10,16 +10,25 @@ repo_url = "https://github.com/mahdihaghverdi/k8s-operators-docs"
 repo_name = "mahdihaghverdi/k8s-operators-docs"
 # edit_uri = "edit/main/docs/"
 
-# nav = [
-#     {"Introduction" = "index.md"},
-# ]
+nav = [
+  { "Introduction" = "index.md" },
+  { "ConfigBundleOperator" = [
+    { "Overview" = "ConfigBundleOperator/Overview.md" },
+    { "Architecture" = "ConfigBundleOperator/Architecture.md" },
+    { "Getting Started" = ["ConfigBundleOperator/Getting Started/Installation.md", "ConfigBundleOperator/Getting Started/Quick Start.md"] },
+    { "Resource" = ["ConfigBundleOperator/ResDef/Definition.md", "ConfigBundleOperator/ResDef/Spec.md", "ConfigBundleOperator/ResDef/Status.md"] },
+    { "Behaviour" = "ConfigBundleOperator/Behaviour.md" },
+    { "Examples" = "ConfigBundleOperator/Examples.md" },
+    { "Deployment" = ["ConfigBundleOperator/Deploy/Helm.md", "ConfigBundleOperator/Deploy/Local.md", "ConfigBundleOperator/Deploy/Manifest.md"] },
+  ] }
+]
 
 # extra_css = ["stylesheets/extra.css"]
 # extra_javascript = ["javascripts/extra.js"]
 
 [project.theme]
 # variant = "classic"
-# custom_dir = "overrides"
+custom_dir = "overrides"
 favicon = "images/favicon.png"
 language = "en"
 features = [
@@ -42,8 +51,8 @@ features = [
   "navigation.path",
   # "navigation.prune",
   "navigation.sections",
-  # "navigation.tabs",
-  # "navigation.tabs.sticky",
+  "navigation.tabs",
+  "navigation.tabs.sticky",
   "navigation.top",
   "navigation.tracking",
   "search.highlight",
@@ -104,6 +113,9 @@ pymdownx.details = {}
 pymdownx.emoji = {
   emoji_generator = "zensical.extensions.emoji.to_svg",
   emoji_index = "zensical.extensions.emoji.twemoji",
+options.custom_icons = [
+  "overrides/.icons",
+],
 }
 pymdownx.highlight = {
   anchor_linenums = true,
