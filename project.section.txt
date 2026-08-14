@@ -6,5 +6,5 @@ site_author = "Mahdi Haghverdi"
 
 copyright = "&copy; 2026 Mahdi Haghverdi"
 
-repo_url = "https://github.com/mahdihaghverdi/k8s-operators-docs"
-repo_name = "mahdihaghverdi/k8s-operators-docs"
+# ‌repo_url = "https://github.com/mahdihaghverdi/k8s-operators-docs"
+# repo_name = "mahdihaghverdi/k8s-operators-docs"
