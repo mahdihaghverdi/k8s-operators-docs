@@ -6,21 +6,12 @@ site_author = "Mahdi Haghverdi"
 
 copyright = "&copy; 2026 Mahdi Haghverdi"
 
-repo_url = "https://github.com/mahdihaghverdi/k8s-operators-docs"
-repo_name = "mahdihaghverdi/k8s-operators-docs"
+# repo_url = "https://github.com/mahdihaghverdi/k8s-operators-docs"
+# repo_name = "mahdihaghverdi/k8s-operators-docs"
 # edit_uri = "edit/main/docs/"
 
 nav = [
   { "Introduction" = "index.md" },
-  { "ConfigBundleOperator" = [
-    { "Overview" = "ConfigBundleOperator/Overview.md" },
-    { "Architecture" = "ConfigBundleOperator/Architecture.md" },
-    { "Getting Started" = ["ConfigBundleOperator/Getting Started/Installation.md", "ConfigBundleOperator/Getting Started/Quick Start.md"] },
-    { "Resource" = ["ConfigBundleOperator/ResDef/Definition.md", "ConfigBundleOperator/ResDef/Spec.md", "ConfigBundleOperator/ResDef/Status.md"] },
-    { "Behaviour" = "ConfigBundleOperator/Behaviour.md" },
-    { "Examples" = "ConfigBundleOperator/Examples.md" },
-    { "Deployment" = ["ConfigBundleOperator/Deploy/Helm.md", "ConfigBundleOperator/Deploy/Local.md", "ConfigBundleOperator/Deploy/Manifest.md"] },
-  ] }
 ]
 
 # extra_css = ["stylesheets/extra.css"]
