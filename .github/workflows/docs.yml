@@ -26,6 +26,7 @@ jobs:
     steps:
       - uses: actions/configure-pages@v6
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
           repository: mahdihaghverdi/ConfigBundleOperator
           path: ConfigBundleOperator
