@@ -66,6 +66,8 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
             pprint(nav_list)
 
             nav.append({operator_name: nav_list})
+
+            pprint(nav, sort_dicts=False)
     return nav
 
 
