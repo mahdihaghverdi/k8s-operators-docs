@@ -45,6 +45,8 @@ def add_operator_name_to_file_paths(nav_dict: dict, operator_name: str) -> dict:
     return nav_dict
 
 def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
+    from pprint import pprint
+
     ZENSICAL_NAV_CONF = "zensical.nav.txt"
     nav = []
     with open(ROOT / ZENSICAL_NAV_CONF) as f:
@@ -54,16 +56,16 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
         operator_name = operator["name"]
         with open(ROOT / operator_name / ZENSICAL_NAV_CONF) as f:
             nav_list = eval(f.read())
+            print('nav_list of', operator_name)
+            pprint(nav_list)
+
             for dict_ in nav_list:
                 add_operator_name_to_file_paths(dict_, operator_name)
+
+            print("what came back")
+            pprint(nav_list)
+
             nav.append({operator_name: nav_list})
-    from pprint import pprint
-    pprint(nav, width=100, sort_dicts=False)
-    print(type(nav))
-    try:
-        print(nav[0])
-    except IndexError:
-        pass
     return nav
 
 
