@@ -58,7 +58,12 @@ def create_the_canonical_nav(operators: list[dict]) -> list[dict]:
                 add_operator_name_to_file_paths(dict_, operator_name)
             nav.append({operator_name: nav_list})
     from pprint import pprint
-    pprint(nav, sort_dicts=False)
+    pprint(nav, width=100, sort_dicts=False)
+    print(type(nav))
+    try:
+        print(nav[0])
+    except IndexError:
+        pass
     return nav
 
 
