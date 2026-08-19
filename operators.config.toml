@@ -1,2 +1,5 @@
 [[operators]]
 name = "ConfigBundleOperator"
+
+[[operators]]
+name = "Replikator"
