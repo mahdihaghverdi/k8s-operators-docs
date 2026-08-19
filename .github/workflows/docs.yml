@@ -36,7 +36,13 @@ jobs:
           path: ConfigBundleOperator
           token: ${{ secrets.TOKEN }}
           ref: main
-
+      - uses: actions/checkout@v7
+        with:
+          repository: mahdihaghverdi/Replikator
+          path: Replikator
+          token: ${{ secrets.TOKEN }}
+          ref: main
+          
       - uses: actions/setup-python@v6
       - run: |
           python scripts/generate_zensical.toml.py
